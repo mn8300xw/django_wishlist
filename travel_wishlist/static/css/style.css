@@ -21,6 +21,7 @@ a.nav-link {
 }
 
 #add-new-place {
+    display: inline;
     background-color: green;
     border: dark green;
 }
