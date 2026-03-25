@@ -1,5 +1,11 @@
 <h2>Travel Wishlist</h2>
 
+<form method="POST" action="">
+    {% csrf_token %}
+    {{ new_place_form }}
+    <button type="submit">Add</button>
+</form>
+
 {% for place in places %}
 
 <div>
