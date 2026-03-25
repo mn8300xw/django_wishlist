@@ -1,7 +1,11 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="">
     <head>
         <title>Travel Wishlist</title>
+        <link rel="stylesheet" href="https://unpkg.com/sakura.css/css/sakura.css" type="text/css">
+        <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
     </head>
 
     <h1>Where do you want to go?</h1>
@@ -14,8 +18,8 @@
     <div>
         <p>A travel wishlist, built with Django</p>
 
-        <a href="{% url 'place_list' %}">Your wishlist</a>
-        <a href="{% url 'places_visited' %}">Places you've visited</a>
+        <a class="nav-link" href="{% url 'place_list' %}">Your wishlist</a>
+        <a class="nav-link" href="{% url 'places_visited' %}">Places you've visited</a>
     </div>
 
 </html>
