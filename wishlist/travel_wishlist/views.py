@@ -2,7 +2,6 @@ from django.shortcuts import render, redirect
 from .models import Place
 from .forms import NewPlaceForm
 
-# Create your views here.
 
 def place_list(request):
 
@@ -34,4 +33,3 @@ def about(request):
     author = 'Vanessa'
     about = 'A website to create a list of places to visit'
     return render(request, 'travel_wishlist/about.html', {'author': author, 'about': about})
-

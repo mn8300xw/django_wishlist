@@ -3,9 +3,8 @@
 
 <h2>Travel Wishlist</h2>
 
-<form class="visited-form" method="POST" action="{% url 'place_list' %}">
+<form method="POST" action="{% url 'place_list' %}">
     {% csrf_token %}
-    {{ new_place_form }}
     <button id="add-new-place" type="submit">Add</button>
 </form>
 
@@ -14,9 +13,12 @@
 <div class="wishlist-place">
     <span class="place-name">{{  place.name  }}</span>
 
-    <form class="visited-form" method="POST" action="{% url 'place_was_visited' place.pk %}">
+    <form class="visited-form" method="POST" action="{% url 'place_was_visited' place_pk=place.pk %}">
         {% csrf_token %}
-        <button>Visited!</button>
+            <span id="place-name-{{ place.pk }}" class="place-name">
+            <a href="{% url 'place_details' place_pk=place.pk %}">{{  place.name  }}</a>
+    </span>
+         <button id="visited-button-{{ place.pk }}" type="submit">Visited!</button>
     </form>
 </div>
 
