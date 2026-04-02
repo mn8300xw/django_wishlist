@@ -4,27 +4,30 @@
 <h2>Travel Wishlist</h2>
 
 <form method="POST" action="{% url 'place_list' %}">
-    {% csrf_token %}
-    <button id="add-new-place" type="submit">Add</button>
+  {% csrf_token %}
+  {{ new_place_form }}
+  <button id="add-new-place" type="submit">Add</button>
 </form>
 
 {% for place in places %}
 
-<div class="wishlist-place">
-    <span class="place-name">{{  place.name  }}</span>
 
-    <form class="visited-form" method="POST" action="{% url 'place_was_visited' place_pk=place.pk %}">
-        {% csrf_token %}
-            <span id="place-name-{{ place.pk }}" class="place-name">
-            <a href="{% url 'place_details' place_pk=place.pk %}">{{  place.name  }}</a>
+<div class="wishlist-place">
+
+    <span id="place-name-{{ place.pk }}" class="place-name">
+      <a href="{% url 'place_detail' place_pk=place.pk %}">{{ place.name }}</a>
     </span>
-         <button id="visited-button-{{ place.pk }}" type="submit">Visited!</button>
+
+    <form class="visited-form" method="POST" action="{% url 'place_was_visited' place.pk %}">
+        {% csrf_token %}
+        <button id="visited-button-{{ place.pk }}" type="submit">Visited!</button>
     </form>
+
 </div>
 
 {% empty %}
 
-<p>You have no places in your wishlist.</p>
+<P>You have no places in your wishlist.</p>
 
 {% endfor %}
 

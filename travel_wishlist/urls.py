@@ -6,5 +6,6 @@ urlpatterns = [
     path('visited', views.places_visited, name='places_visited'),
     path('place/<int:place_pk>/was_visited', views.place_was_visited, name='place_was_visited'),
     path('about', views.about, name='about'),
-    path('place/<int:place_pk/place_details', views.place_details, name='place_details')
+    path('place/<int:place_pk>/place_detail', views.place_detail, name='place_detail'),
+    path('place/<int:place_pk>/delete', views.delete_place, name='delete_place')
 ]

@@ -15,3 +15,9 @@ class Place(models.Model):
         photo_str = self.photo.url if self.photo else 'no photo'
         notes_str = self.notes[100:] if self.notes else 'no notes'
         return f'{self.name}, visited? {self.visited} on {self.date_visited}. Notes: {notes_str}. Photo {photo_str}'
+
+    def delete(self, *args, **kwargs):
+        if self.photo:
+            self.delete_photo(self.photo)
+
+        super().delete(*args, **kwargs)
