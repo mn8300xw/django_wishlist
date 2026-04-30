@@ -1,0 +1,14 @@
+runtime: python310
+
+entrypoint: gunicorn wishlist.wsgi:application
+
+env_variables:
+  DJANGO_SETTINGS_MODULE: "wishlist.settings"
+  DB_NAME: "places"
+  DB_USER: "traveler"
+  DB_PASSWORD: "Password!1"
+  DB_CONNECTION_NAME: "django-wishlist-492603:us-central1:traveler"
+
+  beta_settings:
+    cloud_sql_instances: django-wishlist-492603:us-central1:traveler
+
