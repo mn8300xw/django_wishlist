@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 import os
 from pathlib import Path
 from google.oauth2 import service_account
+from dotenv import load_dotenv
+load_dotenv()  # Load environment variables from .env file
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -76,9 +78,9 @@ WSGI_APPLICATION = 'wishlist.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'places',
-        'USER': 'traveler',
-        'PASSWORD': 'Password!1',
+        'NAME': os.environ.get('DB_NAME'),
+        'USER': os.environ.get('DB_USER'),
+        'PASSWORD': os.environ.get('DB_PASSWORD'),
         'HOST': '/cloudsql/django-wishlist-492603:us-central1:traveler',
         'PORT': '3306'
     }
